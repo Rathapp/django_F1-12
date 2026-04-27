@@ -3,7 +3,12 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello django")
+    return render(request,'patients/home.html')
 
-def createpatients(request):
-    return HttpResponse("Create patients")
+
+def about(request):
+    return render(request,'patients/about.html')
+
+def register(request):
+    return render(request,'patients/register.html')
+
