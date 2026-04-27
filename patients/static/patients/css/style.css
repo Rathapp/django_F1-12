@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blue;
+  color: blueviolet;
+}
+ul {
+  color: brown;
+  display: flex;
+  width: 400px;
+  background-color: azure;
+}
+ul li {
+  list-style: none;
+  padding: 10px 15px;
+}
+ul li a {
+  padding: 10px 15px;
+  list-style: none;
+  text-decoration: none;
+}
+ul li a:hover {
+  background-color: bisque;
+}
