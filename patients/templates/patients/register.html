@@ -1,3 +1,30 @@
 {% extends "patients/main.html" %} {% block conten %}
-<h1>This is register page</h1>
+<h1>This is Register</h1>
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Sex</th>
+        <th>Date of Birth</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for patient in patients%}
+      <tr>
+        <th>{{patient.id}}</th>
+        <td>{{patient.firstName}}</td>
+        <td>{{patient.lastName}}</td>
+        <td>{{patient.Sex}}</td>
+        <td>{{patient.DateOfBirth}}</td>
+        <td><img src="{{patient.picture.url}}" alt="" srcset="" /></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

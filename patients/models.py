@@ -10,6 +10,8 @@ class patients(models.Model):
     Phone= models.CharField(max_length=10,null= True,blank=True)
     addrss= models.CharField(max_length=100,null=True,blank=True)
     is_active = models.BooleanField(default=True)
+    picture = models.ImageField(upload_to='patient/',default='patient/user.png')
+    file = models.FileField(upload_to='file/',default='',null=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated =models.DateTimeField(auto_now=True)
     class Meta:
