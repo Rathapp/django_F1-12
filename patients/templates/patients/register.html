@@ -11,6 +11,7 @@
         <th>Sex</th>
         <th>Date of Birth</th>
         <th>Image</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -22,9 +23,22 @@
         <td>{{patient.Sex}}</td>
         <td>{{patient.DateOfBirth}}</td>
         <td><img src="{{patient.picture.url}}" alt="" srcset="" /></td>
+        <td>
+          <a href="{% url 'update' patient.id %}" class="btn btn-primary"
+            >Edite</a
+          >
+          <a href="{% url 'delete' patient.id %}" class="btn btn-danger"
+            >Delet</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{patientform}}
+  <button type="summit" class="btn btn-primary">Save Data</button>
+</form>
 {% endblock %}
