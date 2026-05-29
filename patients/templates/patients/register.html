@@ -2,6 +2,14 @@
 <h1>This is Register</h1>
 
 <div class="container">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Add Patients
+  </button>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -37,8 +45,42 @@
   </table>
 </div>
 
-<form action="" method="POST" enctype="multipart/form-data">
-  {% csrf_token %} {{patientform}}
-  <button type="summit" class="btn btn-primary">Save Data</button>
-</form>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">{{patientform}}</div>
+        <div class="modal-footer">
+          <button
+            type="Button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="summit" class="btn btn-primary">Save Patients</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
