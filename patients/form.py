@@ -8,8 +8,11 @@ class PatientFormModel(forms.ModelForm):
 
         widgets={
             'firstName':forms.TextInput(attrs={ 'class':'form-control'}),
+            'lastName':forms.TextInput(attrs={ 'class':'form-control'}),
             'DateOfBirth': forms.DateInput(attrs={ 'class':'form-control','type':'date'}),
             'Sex':forms.Select(attrs={ 'class':'form-control'}),
-            'picture': forms.FileInput(attrs={ 'class':'form-control'}),
-            
+            'PlaceOfBirth':forms.TextInput(attrs={ 'class':'form-control'}),
+            'Phone':forms.TextInput(attrs={ 'class':'form-control'}),
+            'addrss':forms.TextInput(attrs={ 'class':'form-control'}),
+            'picture': forms.FileInput(attrs={ 'class':'form-control'}),  
         }

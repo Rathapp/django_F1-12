@@ -1,15 +1,19 @@
 {% extends "patients/main.html" %} {% block conten %}
-<h1>This is Register</h1>
 
 <div class="container">
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  >
-    Add Patients
-  </button>
+  <div class="d-flex flex-row justify-content-between">
+    <h3>Register Patients</h3>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+      <i class="fa-solid fa-plus"></i> Add Patients
+    </button>
+  </div>
+
+  <br />
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -30,14 +34,18 @@
         <td>{{patient.lastName}}</td>
         <td>{{patient.Sex}}</td>
         <td>{{patient.DateOfBirth}}</td>
-        <td><img src="{{patient.picture.url}}" alt="" srcset="" /></td>
         <td>
-          <a href="{% url 'update' patient.id %}" class="btn btn-primary"
-            >Edite</a
-          >
+          <img src="{{patient.picture.url}}" />
+        </td>
+        <td>
+          <a
+            class="editBtn btn btn-primary"
+            onclick="openEditModal('{{patient.id}}','{{patient.firstName}}','{{patient.lastName}}','{{patient.addrss}}')"
+            ><i class="fa-solid fa-pen-to-square"></i
+          ></a>
           <a href="{% url 'delete' patient.id %}" class="btn btn-danger"
-            >Delet</a
-          >
+            ><i class="fa-solid fa-trash"></i
+          ></a>
         </td>
       </tr>
       {% endfor %}
@@ -66,7 +74,12 @@
           aria-label="Close"
         ></button>
       </div>
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form
+        action=""
+        method="POST"
+        enctype="multipart/form-data"
+        id="patientForm"
+      >
         {% csrf_token %}
         <div class="modal-body">{{patientform}}</div>
         <div class="modal-footer">
@@ -83,4 +96,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}

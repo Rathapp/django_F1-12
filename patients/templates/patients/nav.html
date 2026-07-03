@@ -3,3 +3,9 @@
   <li><a href="{% url 'about' %}">About</a></li>
   <li><a href="{% url 'register' %}">Register</a></li>
 </ul>
+<div style="padding: 0px 20px">
+  <a href="{% url 'logout' %}" class="btn btn-danger"
+    ><i class="fa-solid fa-arrow-right-from-bracket"></i
+  ></a>
+  <span>{{request.user.username}}</span>
+</div>
