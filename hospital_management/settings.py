@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'patients',
+    'rest_framework',
+    'django_filters',
+    'api',
+    'apiv2'
 ]
 
 MIDDLEWARE = [
@@ -108,8 +113,16 @@ LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',), 
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend','rest_framework.filters.SearchFilter',
+	'rest_framework.filters.OrderingFilter',]
+    }
 
-
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
